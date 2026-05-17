@@ -1,6 +1,6 @@
 # Cline Skills
 
-A collection of [Agent Skills](https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills) we use at [Cline](https://cline.bot) and want to share with the community. Skills cover the Cline SDK, code review workflows, and more.
+A collection of [Agent Skills](https://docs.cline.bot/customization/skills) we use at [Cline](https://cline.bot) and want to share with the community.
 
 ## Installing
 
@@ -37,6 +37,7 @@ git clone --recurse-submodules https://github.com/cline/skills
 
 | Agent | Skill Directory | Docs |
 |-------|-----------------|------|
+| Cline | `~/.cline/skills/` | [docs](https://docs.cline.bot/customization/skills) |
 | Claude Code | `~/.claude/skills/` | [docs](https://code.claude.com/docs/en/skills) |
 | Cursor | `~/.cursor/skills/` | [docs](https://cursor.com/docs/context/skills) |
 | OpenCode | `~/.config/opencode/skills/` | [docs](https://opencode.ai/docs/skills/) |
