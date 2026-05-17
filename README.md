@@ -4,7 +4,15 @@ A collection of [Agent Skills](https://www.anthropic.com/engineering/equipping-a
 
 ## Installing
 
-These skills work with any agent that supports the Agent Skills standard, including Claude Code, Cursor, OpenCode, OpenAI Codex, and Pi.
+These skills work with any agent that supports the Agent Skills standard, including Cline, Claude Code, Cursor, OpenCode, OpenAI Codex, and Pi.
+
+### npx skills
+
+Install using the [`npx skills`](https://skills.sh) CLI:
+
+```
+npx skills add https://github.com/cline/skills
+```
 
 ### Claude Code
 
@@ -18,14 +26,6 @@ Install using the [plugin marketplace](https://code.claude.com/docs/en/discover-
 ### Cursor
 
 Install from the Cursor Marketplace or add manually via `Settings > Rules > Add Rule > Remote Rule (Github)` with `cline/skills`.
-
-### npx skills
-
-Install using the [`npx skills`](https://skills.sh) CLI:
-
-```
-npx skills add https://github.com/cline/skills
-```
 
 ### Clone / Copy
 
@@ -56,16 +56,16 @@ Skills are contextual and auto-loaded based on your conversation. When a request
 
 ```
 skills/
-  cline-sdk/        -> vendor/sdk-skill/skill/cline-sdk   (git submodule, see below)
+  cline-sdk/        -> .vendor/sdk-skill/skill/cline-sdk   (git submodule, see below)
   review-team/      Multi-reviewer code review fleet
-vendor/
+.vendor/
   sdk-skill/        Submodule of https://github.com/cline/sdk-skill
 ```
 
 `skills/cline-sdk` is a symlink into the [`cline/sdk-skill`](https://github.com/cline/sdk-skill) submodule, which is maintained in its own repo. To pull the latest:
 
 ```
-git submodule update --remote vendor/sdk-skill
+git submodule update --remote .vendor/sdk-skill
 ```
 
 ## Contributing
