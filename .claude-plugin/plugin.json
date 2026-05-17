@@ -1,0 +1,8 @@
+{
+  "name": "cline",
+  "description": "Skills used at Cline for building AI coding agents: the Cline SDK reference, a multi-reviewer code review fleet, and more",
+  "version": "1.0.0",
+  "author": {
+    "name": "Cline"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "cline",
+  "owner": {
+    "name": "Cline"
+  },
+  "plugins": [
+    {
+      "name": "cline",
+      "source": "./",
+      "description": "Skills used at Cline for building AI coding agents"
+    }
+  ]
+}

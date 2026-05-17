@@ -1,0 +1,15 @@
+{
+  "$schema": "https://code.claude.com/schemas/marketplace.json",
+  "name": "cline",
+  "owner": {
+    "name": "Cline",
+    "url": "https://cline.bot"
+  },
+  "plugins": [
+    {
+      "name": "cline",
+      "source": "./",
+      "description": "Skills used at Cline for building AI coding agents"
+    }
+  ]
+}
