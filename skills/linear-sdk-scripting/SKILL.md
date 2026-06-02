@@ -11,10 +11,12 @@ The SDK is preferred over hand-written GraphQL because pagination, relationship 
 
 ## Workflow at a glance
 
-1. Make sure setup is done (API key in env + SDK installed in the working dir). See Setup.
+Be reactive: try the script first, recover on auth failure, and only create a key as a last resort. Do not gate on `$LINEAR_API_KEY` being set in the current shell, that variable is almost always empty here even when a valid key is already persisted (see Setup).
+
+1. Make sure the SDK is installed in the working dir. See Setup.
 2. Write a small `.mjs` script into the working dir that imports `LinearClient` and does the task.
-3. Run it with `node`.
-4. If it fails with a 401 / `AuthenticationLinearError`, the key is missing or invalid: run the API key setup flow with the user.
+3. Run it with `node`, sourcing the shell profiles first so a persisted key is picked up (see Execution pattern).
+4. If it fails with a 401 / `AuthenticationLinearError`, source the shell profiles and retry once. Only if it still fails is the key actually missing or invalid: run the API key setup flow with the user.
 
 ## Setup
 
@@ -22,13 +24,11 @@ The SDK is preferred over hand-written GraphQL because pagination, relationship 
 
 The SDK authenticates with a Linear personal API key read from the `LINEAR_API_KEY` environment variable.
 
-Check whether it is already available:
+Do not decide whether a key exists by checking the env var up front. Scripts here run in a non-interactive, non-login shell that does not source `~/.zshrc`, `~/.zshenv`, `~/.bashrc`, etc., so `$LINEAR_API_KEY` reads as empty even when a valid key is already persisted in one of those files. An empty variable in this shell does not mean the key is unconfigured.
 
-```sh
-test -n "$LINEAR_API_KEY" && echo "LINEAR_API_KEY is set" || echo "LINEAR_API_KEY is NOT set"
-```
+Instead, let the script attempt the work (the Execution pattern sources the profiles first), and only treat the key as missing if it still auth-fails after that. See Handling auth failures.
 
-If it is not set, guide the user:
+Only when the key is genuinely missing, guide the user through creating one:
 
 1. Open Security and access settings: https://linear.app/settings/account/security
 2. Under Personal API keys, create a new key. Copy it (it starts with `lin_api_`).
@@ -77,6 +77,8 @@ This is a one-time setup; reuse the directory afterwards.
 
 For each task, write a script into the working directory and run it. Use the env var; do not inline the key.
 
+Source the common shell profiles before invoking `node` so a persisted key is pulled into the environment (this shell does not source them automatically). This preamble is harmless when no key is persisted, so use it as the standard way to run every script:
+
 ```sh
 LINEAR_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/linear-sdk-scripting"
 cat > "$LINEAR_DIR/task.mjs" <<'EOF'
@@ -90,6 +92,9 @@ for (const issue of myIssues.nodes) {
   console.log(`${issue.identifier}  ${issue.title}`)
 }
 EOF
+for f in ~/.zshenv ~/.zshrc ~/.zprofile ~/.profile ~/.bashrc ~/.bash_profile; do
+  [ -f "$f" ] && source "$f"
+done
 node "$LINEAR_DIR/task.mjs"
 ```
 
@@ -115,7 +120,20 @@ try {
 }
 ```
 
-If you see `AUTH_FAILED` (or the script crashes before any data), do the Personal API key setup with the user, then rerun.
+If you see `AUTH_FAILED` (or the script crashes before any data), recover in this order rather than jumping straight to creating a key:
+
+1. Source the shell profiles and retry once. The key may already be persisted in a profile file that this shell never sourced. Pull it in and re-run the same script:
+
+   ```sh
+   for f in ~/.zshenv ~/.zshrc ~/.zprofile ~/.profile ~/.bashrc ~/.bash_profile; do
+     [ -f "$f" ] && source "$f"
+   done
+   node "$LINEAR_DIR/task.mjs"
+   ```
+
+   (If you already ran with the canonical Execution pattern preamble, the profiles were sourced, so this retry will only help if you ran without it.)
+
+2. Only if it still auth-fails, the key is genuinely missing or invalid. Now do the Personal API key setup with the user (create and persist a new key), then rerun.
 
 ## Common operations
 
