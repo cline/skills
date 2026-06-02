@@ -32,22 +32,30 @@ If it is not set, guide the user:
 
 1. Open Security and access settings: https://linear.app/settings/account/security
 2. Under Personal API keys, create a new key. Copy it (it starts with `lin_api_`).
-3. Persist it to the shell profile so future sessions have it. Pick the file for the user's shell:
-   - zsh: `~/.zshrc`
-   - bash: `~/.bashrc` (or `~/.bash_profile` on macOS login shells)
-   - fish: `~/.config/fish/config.fish` (syntax is `set -gx LINEAR_API_KEY ...`)
-
-   For zsh or bash, append an export line. Ask the user to paste their key, then run something like:
-
-   ```sh
-   echo 'export LINEAR_API_KEY="lin_api_REPLACE_ME"' >> ~/.zshrc
-   ```
-
-4. Load it into the current session so you can use it immediately without a new terminal:
+3. Ask the user to paste their key, then load it into the current session so you can use it immediately without a new terminal:
 
    ```sh
    export LINEAR_API_KEY="lin_api_REPLACE_ME"
    ```
+
+4. Ask before persisting. The key is a secret and persisting it writes to a file the user owns, so do not do it on your own initiative. Explicitly ask first, for example: "Do you want me to persist this key to your shell profile (`~/.zshrc`) so it's available in future sessions?" Wait for a clear yes.
+
+   Only after the user confirms, perform the write yourself using the command for the user's shell:
+
+   - zsh:
+     ```sh
+     echo 'export LINEAR_API_KEY="lin_api_REPLACE_ME"' >> ~/.zshrc
+     ```
+   - bash (or `~/.bash_profile` on macOS login shells):
+     ```sh
+     echo 'export LINEAR_API_KEY="lin_api_REPLACE_ME"' >> ~/.bashrc
+     ```
+   - fish:
+     ```sh
+     echo 'set -gx LINEAR_API_KEY "lin_api_REPLACE_ME"' >> ~/.config/fish/config.fish
+     ```
+
+   This explicit in-conversation approval is what makes the write a user-requested action rather than an agent-initiated one. If the user declines or does not answer, do not persist the key; it will simply need to be re-set next session.
 
 Never print the key value back to the transcript or commit it anywhere. Treat it as a secret.
 
