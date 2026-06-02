@@ -63,7 +63,12 @@ skills/
   review-team/      Multi-reviewer code review fleet
   linear-sdk-scripting/   Drive Linear via the @linear/sdk in Node scripts
   data-analyst/           Interactive ClickHouse data analyst
-    skills/clickhouse/    Sub-skill: connect + query via clickhousectl
+    skills/clickhouse/              Sub-skill: connect + query via clickhousectl
+    skills/reading-data-dict/       Sub-skill: resolve metric definitions
+    skills/steering-user-elicitation/  Sub-skill: clarify before querying
+    skills/analyzer/                Sub-skill: turn results into findings
+    skills/plotting/                Sub-skill: charts and visual artifacts
+    skills/artifact-management/     Sub-skill: save and describe outputs
 .vendor/
   sdk-skill/        Submodule of https://github.com/cline/sdk-skill
 ```
