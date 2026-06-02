@@ -52,6 +52,7 @@ Skills are contextual and auto-loaded based on your conversation. When a request
 |-------|------------|
 | [cline-sdk](https://github.com/cline/sdk-skill) | Building AI agents with the Cline SDK: Agent runtime, ClineCore sessions, custom tools, plugins, events, LLM providers, scheduling, multi-agent teams, and production deployment |
 | [review-team](./skills/review-team) | Running a fleet of specialized reviewer subagents (correctness, security, architecture, conventions, simplicity, UX, reliability, telemetry, testing, compatibility, docs) against the same change, single-pass or iterate-until-clean |
+| [linear-sdk-scripting](./skills/linear-sdk-scripting) | Doing Linear work from the terminal without the Linear MCP: list, open, create, update, close, and comment on issues, and query teams, projects, cycles, users, and workflow states by writing small Node scripts against the official `@linear/sdk` with a personal API key |
 
 ## Repository Layout
 
@@ -59,6 +60,7 @@ Skills are contextual and auto-loaded based on your conversation. When a request
 skills/
   cline-sdk/        -> .vendor/sdk-skill/skill/cline-sdk   (git submodule, see below)
   review-team/      Multi-reviewer code review fleet
+  linear-sdk-scripting/   Drive Linear via the @linear/sdk in Node scripts
 .vendor/
   sdk-skill/        Submodule of https://github.com/cline/sdk-skill
 ```
