@@ -101,13 +101,13 @@ Factual chart text policy:
 
 - Do not use interpretive/takeaway headlines by default. Avoid titles such as "X dominates," "Y collapsed," "A drives B," "Z is recovering," or "conversion is weak" unless the user explicitly asks for a takeaway chart or presentation narrative.
 - Default title pattern: `<metric> by <dimension/grouping>` or `<metric> over time by <grouping>`.
-  - Good: `Daily tasks created by platform`
-  - Good: `Positive revenue by provider and model`
-  - Avoid by default: `VS Code dominates task volume`
-  - Avoid by default: `Sonnet drives revenue`
+  - Good: `Daily orders by region`
+  - Good: `Revenue by plan and product`
+  - Avoid by default: `Mobile dominates order volume`
+  - Avoid by default: `Enterprise plan drives revenue`
 - Use the subtitle/caption for factual context: time window, grain, filters, top-N rule, current-day exclusion, aggregation, and whether values are counts, rates, currency, or percentages.
 - Keep interpretive analysis in the surrounding written response, not embedded in the chart, unless requested. The chart should remain reusable as a neutral evidence artifact.
-- If a user asks for a slide/report "headline" or "takeaway," still keep claims mechanically checkable: name the metric, comparison basis, population, and time window. Prefer `Top two pairs account for 62% of positive revenue` over `Top two pairs drive revenue`.
+- If a user asks for a slide/report "headline" or "takeaway," still keep claims mechanically checkable: name the metric, comparison basis, population, and time window. Prefer `Top two plans account for 62% of revenue` over `Top two plans drive revenue`.
 - Annotations should be factual labels, not conclusions. Prefer `May 13 high` or `Release date` over `backfill spike`, `collapse`, or `recovery` unless that cause is verified.
 - Alt text and metadata should be factual descriptions of the chart contents and encodings. Put caveats and interpretation in separate `caveats` or analysis fields.
 
@@ -116,7 +116,7 @@ Title, axis, and legend checklist:
 - Title: identifies the plotted metric and primary dimension/grouping; no unexplained conclusion verbs.
 - Subtitle: adds time window, grain, filters, and top-N/coverage rules when needed.
 - X-axis: labeled unless the tick labels and title/subtitle make the dimension unambiguous, such as obvious calendar years; do not make readers guess.
-- Y-axis/value scale: labeled with metric and unit, such as `Tasks created`, `Revenue (USD)`, `Active users`, or `Share of users (%)`.
+- Y-axis/value scale: labeled with metric and unit, such as `Orders`, `Revenue (USD)`, `Active users`, or `Share of users (%)`.
 - Legend/direct labels: identify what color, line style, marker, or panel represents. Prefer direct labels when they fit; otherwise keep the legend outside the data region and ordered to match the visual order.
 - Caption/source note: includes source table/model, freshness/current-day exclusion if relevant, important filters, top-N truncation, and scale caveats such as independent axes or log scale.
 
@@ -158,7 +158,7 @@ Default Cline chart style:
 - Use brand cream `#fbfaf4` only as a soft alternate background when helpful.
 - Title left-aligned when supported.
 - Legend above or to the right, not overlapping the data.
-- Clear axis labels with units, e.g. `Tasks created`, `Cost (USD)`, `Active users`.
+- Clear axis labels with units, e.g. `Orders`, `Cost (USD)`, `Active users`.
 - Date ticks matched to grain: daily, weekly, or monthly.
 - Chart dimensions suitable for reports: about 1000x600 for HTML/static exports unless the user requests otherwise.
 

@@ -64,6 +64,6 @@ Always produce the Intent block. You may skip asking questions (mark every field
 - an explicit time window (a date literal or an unambiguous relative window),
 - an explicit aggregate or operation (count, sum, avg, top-N, etc.).
 
-Example that qualifies: "How many rows in `analytics.gold_task_created_daily` from 2026-05-20 to 2026-05-27?"
+Example that qualifies: "How many rows in `analytics.events_daily` from 2026-05-20 to 2026-05-27?"
 
 If any of those three is missing or interpretable, at least one field is NEED FROM USER or LOOK UP, do not skip.
