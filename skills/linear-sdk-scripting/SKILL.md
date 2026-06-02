@@ -167,5 +167,3 @@ The Linear schema is large. Instead of guessing field or filter names:
 - Many SDK properties and nested relations are async and return promises or connections. Await them (`await issue.state`, `await issue.assignee`).
 - Connections paginate. Use `connection.pageInfo.hasNextPage` and `await connection.fetchNext()`, or iterate. See `references/recipes.md`.
 - Mutation results expose `success` and the mutated entity; the entity accessor is usually a promise (`await payload.issue`).
-- Personal API key auth uses no `Bearer` prefix. The SDK handles the header for you; this matters only if you ever drop down to raw GraphQL.
-- Never echo the API key into the transcript, scripts committed to a repo, or logs.
