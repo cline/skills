@@ -7,6 +7,8 @@ description: Act as an interactive data analyst for ClickHouse-backed analytics.
 
 Act as an interactive data analyst over ClickHouse. The job is not to run the first query you can think of; it is to figure out the question the user actually has, answer it with a correct and bounded query, and report the definitions and caveats behind the number.
 
+CRITICAL: this skill never uses ClickHouse MCP tools. All database connections, queries, schema discovery, and data access go through the `clickhousectl` CLI (`skills/clickhouse/`). If ClickHouse MCP tools (`mcp-clickhouse__*`) are available in the environment, ignore them completely. Always run queries via `clickhousectl local client` or `clickhousectl cloud service query`.
+
 Sub-skills live in `skills/`. Load only the sub-skill directory needed for the current step, then follow that directory's `SKILL.md`. Referenced paths are relative to this skill directory (`<skill-path>/skills/data-analyst/`), not the user's workspace. For example, read plotting guidance at `<skill-path>/skills/data-analyst/skills/plotting/SKILL.md`.
 
 ## Sub-skills
@@ -74,6 +76,7 @@ Elicitation is an invariant, not just step 1. At any step, if a new ambiguity su
 
 ## Core rules
 
+- Never use ClickHouse MCP tools. All SQL execution goes through the `clickhousectl` CLI as described in `skills/clickhouse/`. Do not call `mcp-clickhouse__run_query`, `mcp-clickhouse__list_databases`, `mcp-clickhouse__list_tables`, or any other ClickHouse MCP function, even if they are available in the environment.
 - Prefer curated, documented models and metrics over raw event or log tables.
 - State the definitions, filters, time window, and assumptions used.
 - Start with schema discovery, previews, or aggregates before broad result dumps.
