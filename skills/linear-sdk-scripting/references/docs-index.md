@@ -1,34 +1,27 @@
 # Linear developer docs index
 
-Fetch the specific page you need when you do not know an exact field, filter, method, or input name. Do not guess the schema; read the relevant page and use the names from it.
+Fetch the specific page you need when you do not know an exact method, input, field, or filter name. Do not guess the schema; read the relevant page and use the names from it.
 
-## GraphQL API
+This skill uses the TypeScript SDK as the way to talk to Linear, not raw GraphQL. The SDK is a typed wrapper over the same GraphQL schema, so the filtering and pagination semantics and every field name are shared. That is why the schema-level references below are useful even though you are writing SDK calls.
 
-- Getting started: https://linear.app/developers/graphql
-- Pagination: https://linear.app/developers/pagination
-- Filtering: https://linear.app/developers/filtering
-- Rate limiting: https://linear.app/developers/rate-limiting
-- Deprecations: https://linear.app/developers/deprecations
-- Webhooks: https://linear.app/developers/webhooks
-- Attachments: https://linear.app/developers/attachments
-- Managing customers: https://linear.app/developers/managing-customers
-- Full GraphQL schema reference (every type, field, and filter): https://studio.apollographql.com/public/Linear-API/schema/reference?variant=current
-
-## TypeScript SDK
+## TypeScript SDK (primary)
 
 - Getting started: https://linear.app/developers/sdk
 - Fetching and modifying data: https://linear.app/developers/sdk-fetching-and-modifying-data
 - Errors: https://linear.app/developers/sdk-errors
-- Advanced usage: https://linear.app/developers/advanced-usage
-- Webhooks: https://linear.app/developers/sdk-webhooks
+- Advanced usage (includes the raw GraphQL escape hatch, `linear.client.rawRequest`): https://linear.app/developers/advanced-usage
 - Migrating 1.x to 2.x: https://linear.app/developers/migrating-from-1-x-to-2-x
 - SDK source on GitHub: https://github.com/linear/linear/tree/master/packages/sdk
 
-## Authentication
+## Shared API reference (the SDK mirrors this schema)
 
-- OAuth 2.0 authentication: https://linear.app/developers/oauth-2-0-authentication
-- OAuth actor authorization: https://linear.app/developers/oauth-actor-authorization
-- File storage authentication: https://linear.app/developers/file-storage-authentication
+The SDK's `filter` objects, cursor pagination, and field names come straight from the GraphQL schema. Use these when a method, field, or filter name is unknown.
+
+- Full GraphQL schema reference (every type, field, and filter): https://studio.apollographql.com/public/Linear-API/schema/reference?variant=current
+- Filtering (the same filter syntax the SDK passes through): https://linear.app/developers/filtering
+- Pagination (the model behind `fetchNext` / `pageInfo`): https://linear.app/developers/pagination
+- Rate limiting: https://linear.app/developers/rate-limiting
+- Deprecations: https://linear.app/developers/deprecations
 
 ## Account settings (for the user)
 
@@ -36,9 +29,10 @@ Fetch the specific page you need when you do not know an exact field, filter, me
 
 ## Which page to read for common needs
 
+- "What SDK method creates / updates / fetches X" -> SDK fetching and modifying data.
 - "How do I filter issues by X" -> Filtering, then the schema reference for the exact field.
 - "How do I page through all results" -> Pagination.
-- "What fields does an Issue / Project / Cycle have" -> GraphQL schema reference.
-- "What SDK method creates or updates X" -> SDK fetching and modifying data.
+- "What fields does an Issue / Project / Cycle have" -> schema reference.
 - "What error did I get and how do I handle it" -> SDK errors.
 - "Am I being rate limited" -> Rate limiting.
+- "There is no SDK method for what I need" -> Advanced usage, then drop to `linear.client.rawRequest(query, variables)` with a query built from the schema reference.
