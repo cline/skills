@@ -11,12 +11,22 @@ Sub-skills live in `skills/`. Load only the sub-skill directory needed for the c
 
 ## Sub-skills
 
+Authored for this analyst workflow:
+
 - `skills/clickhouse/` — connect to ClickHouse (local or ClickHouse Cloud) via the `clickhousectl` CLI and run safe, bounded queries. Load before executing any SQL.
 - `skills/reading-data-dict/` — resolve business and product terms to concrete models, columns, and metric definitions when the project documents its data (dbt repo, data dictionary, model docs).
 - `skills/steering-user-elicitation/` — fill the Intent block well, phrase good pushback, and handle metrics that are missing or commonly misunderstood.
 - `skills/analyzer/` — turn query results into trends, comparisons, distributions, funnels, sanity checks, and report-ready findings.
 - `skills/plotting/` — create chart or visual artifacts from query results.
 - `skills/artifact-management/` — save CSVs, charts, and report assets to a stable location and report their paths.
+
+Bundled official ClickHouse skills (from [ClickHouse/agent-skills](https://github.com/ClickHouse/agent-skills), Apache-2.0, vendored via a git submodule). Load these when the corresponding need arises:
+
+- `skills/clickhouse-best-practices/` — schema, query, and ingestion rules plus an agent schema-discovery and query-safety workflow. Consult when writing or optimizing non-trivial SQL.
+- `skills/chdb-sql/` — run ClickHouse SQL on local files (parquet/csv/json), S3, and remote databases in Python with no server. Use for ad-hoc analysis over files or cross-source data.
+- `skills/chdb-datastore/` — pandas-style API on a ClickHouse engine and cross-source DataFrames. Use when the user has DataFrames/files and wants fast, SQL-grade aggregation that feeds plotting.
+- `skills/clickhousectl-local-dev/` — install ClickHouse and run a local server. Use when the user needs a local instance to load and analyze data.
+- `skills/clickhousectl-cloud-deploy/`, `skills/clickhouse-architecture-advisor/`, `skills/clickhouse-js-node-coding/`, `skills/clickhouse-js-node-troubleshooting/` — also bundled; less central to ad-hoc analysis (deployment, production architecture, and JS client work).
 
 See `examples.md` for realistic example prompts that show the elicitation-first style.
 
@@ -56,7 +66,7 @@ Load `skills/steering-user-elicitation/` for how to fill this block well, phrase
 1. State the Intent block (pass 1). Restate the request as the Intent block using only the user's words plus obvious defaults. Mark ambiguous-with-no-default fields NEED FROM USER and stop to ask. Mark documented-but-undefined terms LOOK UP. You may consult the data dictionary (step 3) to resolve LOOK UP terms, but do not query or explore the actual data while a NEED FROM USER field remains.
 2. Verify connection. Load `skills/clickhouse/` to confirm you can reach the right ClickHouse (local server or Cloud service). Skip only if already verified this session.
 3. Resolve definitions (targeted). Load `skills/reading-data-dict/` to resolve the specific LOOK UP terms from step 1, not a full data exploration. Then confirm the resolved definitions back to the user (pass 2), surfacing any options the dictionary revealed. Update the Intent block.
-4. Draft and run safe SQL. Load `skills/clickhouse/` before executing queries. Apply the confirmed Intent block.
+4. Draft and run safe SQL. Load `skills/clickhouse/` before executing queries against a ClickHouse server, or `skills/chdb-sql/` when the data is local files or remote sources you can query without a server. Consult `skills/clickhouse-best-practices/` when the SQL is non-trivial or needs optimizing. Apply the confirmed Intent block.
 5. Analyze results. Load `skills/analyzer/` for trends, comparisons, distributions, summaries, sanity checks, or report-ready findings.
 6. Create and save artifacts. Load `skills/plotting/` when the user asks for charts or when visualization materially improves understanding, and `skills/artifact-management/` to save CSVs, charts, and report assets to a stable location and report their paths.
 

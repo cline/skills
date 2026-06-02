@@ -9,12 +9,14 @@ Connect to ClickHouse and run queries using `clickhousectl`, the official ClickH
 
 ## Scope
 
-This skill is for connecting and querying. For these other flows, use the official ClickHouse skills instead of reinventing them:
+This skill is for connecting and querying. For these other flows, use the bundled official ClickHouse skills (siblings in this directory) instead of reinventing them:
 
-- Setting up a local dev environment from scratch (install ClickHouse, init a project, start a server, create schema): official `clickhousectl-local-dev` skill.
-- Deploying to or migrating into ClickHouse Cloud (create a service, migrate schema, provision an app user): official `clickhousectl-cloud-deploy` skill.
+- Setting up a local dev environment from scratch (install ClickHouse, init a project, start a server, create schema): `../clickhousectl-local-dev/`.
+- Deploying to or migrating into ClickHouse Cloud (create a service, migrate schema, provision an app user): `../clickhousectl-cloud-deploy/`.
+- Writing or optimizing non-trivial SQL, or the agent schema-discovery and query-safety workflow: `../clickhouse-best-practices/`.
+- Running SQL on local files or remote sources without a server: `../chdb-sql/`.
 
-Install the official ClickHouse Agent Skills with `clickhousectl skills`, or `npx skills add clickhouse/agent-skills`. Repo: https://github.com/ClickHouse/agent-skills
+These are vendored from https://github.com/ClickHouse/agent-skills (Apache-2.0). They can also be installed standalone with `clickhousectl skills` or `npx skills add clickhouse/agent-skills`.
 
 ## Step 1: Ensure clickhousectl is installed
 
