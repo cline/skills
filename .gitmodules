@@ -1,3 +1,6 @@
 [submodule ".vendor/sdk-skill"]
 	path = .vendor/sdk-skill
 	url = https://github.com/cline/sdk-skill.git
+[submodule ".vendor/clickhouse-agent-skills"]
+	path = .vendor/clickhouse-agent-skills
+	url = https://github.com/ClickHouse/agent-skills.git

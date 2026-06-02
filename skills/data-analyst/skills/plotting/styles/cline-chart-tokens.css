@@ -1,0 +1,71 @@
+/* === Cline Brand Design Tokens for Chart Styling ===
+   Extracted from cline-web design system for self-contained chart artifacts.
+   https://github.com/cline/cline-web
+
+   Usage: Copy or reference this file in chart HTML artifacts.
+   These tokens match the cline-web brand design system.
+   When exact Cline tokens are unavailable in another environment,
+   use these as the canonical reference and note any approximations.
+   ================================================================ */
+
+:root {
+  /* === Brand Colors === */
+  --cline-blue: #5487C8;
+  --cline-blue-600: #355989;
+  --cline-blue-300: #82A8D8;
+  --cline-purple: #9F58FA;
+  --cline-green: #2BCC28;
+  --cline-pink: #F53969;
+  --cline-black: #151516;
+  --cline-white: #F8FAFB;
+  --cline-cream: #fbfaf4;
+
+  /* === Chart Palette (ordered by preference) === */
+  --chart-color-1: var(--cline-blue);
+  --chart-color-2: var(--cline-purple);
+  --chart-color-3: var(--cline-green);
+  --chart-color-4: var(--cline-pink);
+  --chart-color-5: var(--cline-blue-600);
+  --chart-color-6: var(--cline-blue-300);
+
+  /* === Typography === */
+  --font-primary: 'DM Sans', Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'DM Sans', system-ui, sans-serif;
+
+  /* === Background & Text === */
+  --bg-primary: var(--cline-white);       /* #F8FAFB - default chart background */
+  --bg-alt: #ffffff;                      /* white for embedded report assets */
+  --bg-soft: var(--cline-cream);          /* #fbfaf4 - soft alternate background */
+  --text-primary: var(--cline-black);     /* #151516 - default text */
+
+  /* === Chart Dimensions === */
+  --chart-width-report: 1000px;
+  --chart-height-report: 600px;
+
+  /* === Transitions === */
+  --transition-fast: 150ms;
+  --transition-medium: 300ms;
+  --transition-slow: 700ms;
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* === Chart Base Styles === */
+.chart-container {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-primary);
+  -webkit-font-smoothing: antialiased;
+}
+
+.chart-title {
+  font-family: var(--font-primary);
+  color: var(--text-primary);
+  text-align: left;
+}
+
+.chart-caption {
+  font-family: var(--font-primary);
+  color: var(--text-primary);
+  opacity: 0.7;
+  font-size: 0.875rem;
+}

@@ -53,6 +53,7 @@ Skills are contextual and auto-loaded based on your conversation. When a request
 | [cline-sdk](https://github.com/cline/sdk-skill) | Building AI agents with the Cline SDK: Agent runtime, ClineCore sessions, custom tools, plugins, events, LLM providers, scheduling, multi-agent teams, and production deployment |
 | [review-team](./skills/review-team) | Running a fleet of specialized reviewer subagents (correctness, security, architecture, conventions, simplicity, UX, reliability, telemetry, testing, compatibility, docs) against the same change, single-pass or iterate-until-clean |
 | [linear-sdk-scripting](./skills/linear-sdk-scripting) | Doing Linear work from the terminal without the Linear MCP: list, open, create, update, close, and comment on issues, and query teams, projects, cycles, users, and workflow states by writing small Node scripts against the official `@linear/sdk` with a personal API key |
+| [data-analyst](./skills/data-analyst) | Acting as an interactive data analyst over ClickHouse: clarify the actual question first, then connect (local or ClickHouse Cloud) and run safe, bounded SQL via the `clickhousectl` CLI. Includes a `clickhouse` sub-skill for CLI auth (browser OAuth) and querying |
 
 ## Repository Layout
 
@@ -61,14 +62,31 @@ skills/
   cline-sdk/        -> .vendor/sdk-skill/skill/cline-sdk   (git submodule, see below)
   review-team/      Multi-reviewer code review fleet
   linear-sdk-scripting/   Drive Linear via the @linear/sdk in Node scripts
+  data-analyst/           Interactive ClickHouse data analyst
+    skills/clickhouse/              Sub-skill: connect + query via clickhousectl
+    skills/reading-data-dict/       Sub-skill: resolve metric definitions
+    skills/steering-user-elicitation/  Sub-skill: clarify before querying
+    skills/analyzer/                Sub-skill: turn results into findings
+    skills/plotting/                Sub-skill: charts and visual artifacts
+    skills/artifact-management/     Sub-skill: save and describe outputs
+    skills/clickhouse-best-practices/  -> .vendor/clickhouse-agent-skills (official, see below)
+    skills/chdb-sql/                   -> .vendor/clickhouse-agent-skills
+    skills/chdb-datastore/             -> .vendor/clickhouse-agent-skills
+    skills/clickhousectl-local-dev/    -> .vendor/clickhouse-agent-skills
+    skills/clickhousectl-cloud-deploy/ -> .vendor/clickhouse-agent-skills
+    skills/clickhouse-architecture-advisor/      -> .vendor/clickhouse-agent-skills
+    skills/clickhouse-js-node-coding/            -> .vendor/clickhouse-agent-skills
+    skills/clickhouse-js-node-troubleshooting/   -> .vendor/clickhouse-agent-skills
 .vendor/
-  sdk-skill/        Submodule of https://github.com/cline/sdk-skill
+  sdk-skill/                 Submodule of https://github.com/cline/sdk-skill
+  clickhouse-agent-skills/   Submodule of https://github.com/ClickHouse/agent-skills (Apache-2.0)
 ```
 
-`skills/cline-sdk` is a symlink into the [`cline/sdk-skill`](https://github.com/cline/sdk-skill) submodule, which is maintained in its own repo. To pull the latest:
+`skills/cline-sdk` is a symlink into the [`cline/sdk-skill`](https://github.com/cline/sdk-skill) submodule, which is maintained in its own repo. The official ClickHouse skills under `skills/data-analyst/skills/` are symlinks into the [`ClickHouse/agent-skills`](https://github.com/ClickHouse/agent-skills) submodule (Apache-2.0). To pull the latest:
 
 ```
 git submodule update --remote .vendor/sdk-skill
+git submodule update --remote .vendor/clickhouse-agent-skills
 ```
 
 ## Contributing
