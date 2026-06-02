@@ -142,27 +142,25 @@ Accessibility/reporting rules:
 - Use plain language in titles, labels, notes, and caveats.
 - Keep enough context for the chart to be understood outside the conversation: metric, grain, time window, filters, source, and caveats.
 
-## Cline visual style
+## Visual style
 
-Use Cline web/brand style guidance. Design tokens are available in the local styles directory:
+Default to a clean, neutral style that reads well in any report. This skill is brand-agnostic; do not apply any organization's branding unless the user asks.
 
-- Canonical tokens: `styles/cline-chart-tokens.css` (self-contained CSS custom properties for chart artifacts)
-- Upstream source: [cline-web](https://github.com/cline/cline-web) (Tailwind config, global CSS, and brand assets)
-
-Default Cline chart style:
-
-- Plain HTML/CSS/JavaScript/SVG interactive artifact with brand-white/off-white background `#F8FAFB` or white for embedded report assets.
-- Dark text using brand black `#151516`.
-- Font family: prefer `DM Sans`, then Inter, then system sans-serif.
-- Restrained palette, in order: brand blue `#5487C8`, brand purple `#9F58FA`, brand green `#2BCC28`, brand pink `#F53969`, blue-600 `#355989`, blue-300 `#82A8D8`.
-- Use brand cream `#fbfaf4` only as a soft alternate background when helpful.
+- Plain HTML/CSS/JavaScript/SVG interactive artifact on a white or off-white background.
+- Dark, high-contrast text.
+- A clean sans-serif font stack, such as `system-ui`, Inter, or similar.
+- A small, restrained, consistent palette (about 4-6 colors); avoid rainbow defaults.
 - Title left-aligned when supported.
 - Legend above or to the right, not overlapping the data.
 - Clear axis labels with units, e.g. `Orders`, `Cost (USD)`, `Active users`.
 - Date ticks matched to grain: daily, weekly, or monthly.
 - Chart dimensions suitable for reports: about 1000x600 for HTML/static exports unless the user requests otherwise.
 
-Do not invent additional official brand colors. If exact Cline tokens are unavailable in another environment, say the style is an approximation.
+If the user or project has its own brand palette and fonts, use those. Otherwise the neutral defaults above are fine. Do not invent "official" brand colors for an organization.
+
+### Optional: Cline brand tokens
+
+A ready-made token set is bundled at `styles/cline-chart-tokens.css` (self-contained CSS custom properties: palette, fonts, backgrounds, and chart dimensions) encoding the Cline web brand ([cline-web](https://github.com/cline/cline-web)). It is entirely optional and provided as one example, use it if you want that look, or swap in your own tokens. If you reference it but cannot load the exact tokens in another environment, say the style is an approximation. Do not add Cline (or any other) branding to charts by default.
 
 ## Artifact contract
 
