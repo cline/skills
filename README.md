@@ -68,6 +68,7 @@ Skills are contextual and auto-loaded based on your conversation. When a request
 | [gcp-to-aws](./skills/gcp-to-aws) | Planning and implementing migrations from Google Cloud to AWS, including infrastructure, databases, AI workloads, agent stacks, Terraform, and cutover strategy |
 | [knowledge-catalog-discovery](./skills/knowledge-catalog-discovery) | Discovering and exploring Knowledge Catalog data assets, entries, entry groups, entry types, and metadata through bundled scripts |
 | [math-olympiad](./skills/math-olympiad) | Solving and verifying competition math problems with adversarial proof checks, counterexample hunting, calibrated confidence, and optional LaTeX output |
+| [mintlify](./skills/mintlify) | Building Mintlify documentation sites, including `docs.json`, navigation, MDX pages, components, and API reference configuration |
 | [data-analyst](./skills/data-analyst) | Acting as an interactive data analyst over ClickHouse: clarify the actual question first, then connect (local or ClickHouse Cloud) and run safe, bounded SQL via the `clickhousectl` CLI. Includes a `clickhouse` sub-skill for CLI auth (browser OAuth) and querying |
 
 ## Repository Layout
