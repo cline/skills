@@ -53,6 +53,7 @@ Skills are contextual and auto-loaded based on your conversation. When a request
 | [cline-sdk](https://github.com/cline/sdk-skill) | Building AI agents with the Cline SDK: Agent runtime, ClineCore sessions, custom tools, plugins, events, LLM providers, scheduling, multi-agent teams, and production deployment |
 | [review-team](./skills/review-team) | Running a fleet of specialized reviewer subagents (correctness, security, architecture, conventions, simplicity, UX, reliability, telemetry, testing, compatibility, docs) against the same change, single-pass or iterate-until-clean |
 | [linear-sdk-scripting](./skills/linear-sdk-scripting) | Doing Linear work from the terminal without the Linear MCP: list, open, create, update, close, and comment on issues, and query teams, projects, cycles, users, and workflow states by writing small Node scripts against the official `@linear/sdk` with a personal API key |
+| [amazon-location-service](./skills/amazon-location-service) | Building AWS location-aware apps with maps, places, geocoding, routing, geofences, and trackers using Amazon Location Service |
 | [data-analyst](./skills/data-analyst) | Acting as an interactive data analyst over ClickHouse: clarify the actual question first, then connect (local or ClickHouse Cloud) and run safe, bounded SQL via the `clickhousectl` CLI. Includes a `clickhouse` sub-skill for CLI auth (browser OAuth) and querying |
 
 ## Repository Layout
