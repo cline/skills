@@ -71,6 +71,7 @@ Skills are contextual and auto-loaded based on your conversation. When a request
 | [mintlify](./skills/mintlify) | Building Mintlify documentation sites, including `docs.json`, navigation, MDX pages, components, and API reference configuration |
 | [oracledb](./skills/oracledb) | Managing and monitoring Oracle databases with SQL execution, schema exploration, query plans, session monitoring, resource checks, and object health scripts |
 | [playground](./skills/playground) | Building self-contained interactive HTML playgrounds with controls, live previews, presets, and copyable prompts for design, data, code, document, and concept exploration |
+| [sap-fiori-add-visual-filter](./skills/sap-fiori-add-visual-filter) | Adding chart-based visual filters to SAP Fiori Elements filter bars and value help dialogs using CAP or ABAP RAP annotations |
 | [data-analyst](./skills/data-analyst) | Acting as an interactive data analyst over ClickHouse: clarify the actual question first, then connect (local or ClickHouse Cloud) and run safe, bounded SQL via the `clickhousectl` CLI. Includes a `clickhouse` sub-skill for CLI auth (browser OAuth) and querying |
 
 ## Repository Layout
