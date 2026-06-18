@@ -84,6 +84,7 @@ Skills are contextual and auto-loaded based on your conversation. When a request
 | [use-railway](./skills/use-railway) | Operating Railway infrastructure, including signup/login, project and service creation, deployments, variables, domains, logs, metrics, docs, and agent tooling |
 | [vibe-prospecting](./skills/vibe-prospecting) | Finding company and contact data, building lead lists, enriching prospects, researching accounts, and chaining prospecting workflows through the Vibe Prospecting CLI |
 | [endor-setup](./skills/endor-setup) | Installing and authenticating `endorctl`, handling namespace selection, and running Endor Labs security scans from non-interactive agent shells |
+| [windsor-ai-business-data](./skills/windsor-ai-business-data) | Querying Windsor.ai business data across marketing, sales, CRM, ecommerce, finance, and analytics connectors for dashboards, reports, and schema exploration |
 | [data-analyst](./skills/data-analyst) | Acting as an interactive data analyst over ClickHouse: clarify the actual question first, then connect (local or ClickHouse Cloud) and run safe, bounded SQL via the `clickhousectl` CLI. Includes a `clickhouse` sub-skill for CLI auth (browser OAuth) and querying |
 
 ## Repository Layout
