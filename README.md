@@ -62,6 +62,7 @@ Skills are contextual and auto-loaded based on your conversation. When a request
 | [dataproc-skills](./skills/dataproc-skills) | Managing Google Cloud Dataproc clusters and jobs through bundled Node scripts for listing, inspection, job submission, and cancellation |
 | [desktop-commander-overview](./skills/desktop-commander-overview) | Using Desktop Commander MCP capabilities for persistent shells, long-running processes, broader filesystem access, structured files, search, SSH, and process management |
 | [dsql](./skills/dsql) | Building with Amazon Aurora DSQL, including schemas, SQL execution, migrations, query plans, IAM auth, ORM migration, bulk loading, MCP tools, and distributed SQL patterns |
+| [exa-search](./skills/exa-search) | Running Exa-powered research workflows for deep dives, lead generation, literature reviews, competitive analysis, and multi-step search synthesis |
 | [data-analyst](./skills/data-analyst) | Acting as an interactive data analyst over ClickHouse: clarify the actual question first, then connect (local or ClickHouse Cloud) and run safe, bounded SQL via the `clickhousectl` CLI. Includes a `clickhouse` sub-skill for CLI auth (browser OAuth) and querying |
 
 ## Repository Layout
