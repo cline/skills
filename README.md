@@ -57,6 +57,7 @@ Skills are contextual and auto-loaded based on your conversation. When a request
 | [amplify-workflow](./skills/amplify-workflow) | Building and deploying full-stack web and mobile apps with AWS Amplify Gen2, including auth, data, storage, functions, APIs, and AI Kit patterns |
 | [attorney-assist](./skills/attorney-assist) | Connecting users with LegalZoom attorney consultation workflows, including plan checks, matter context gathering, topic matching, scheduling, and failure guardrails |
 | [building-pydantic-ai-agents](./skills/building-pydantic-ai-agents) | Building Pydantic AI agents with tools, capabilities, structured output, streaming, YAML-defined agents, testing, hooks, and multi-agent patterns |
+| [convex-design](./skills/convex-design) | Designing and building reactive, type-safe Convex backends with schemas, queries, mutations, actions, auth, storage, scheduling, real-time features, and agent workflows |
 | [data-analyst](./skills/data-analyst) | Acting as an interactive data analyst over ClickHouse: clarify the actual question first, then connect (local or ClickHouse Cloud) and run safe, bounded SQL via the `clickhousectl` CLI. Includes a `clickhouse` sub-skill for CLI auth (browser OAuth) and querying |
 
 ## Repository Layout
