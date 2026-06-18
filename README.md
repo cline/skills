@@ -59,6 +59,7 @@ Skills are contextual and auto-loaded based on your conversation. When a request
 | [building-pydantic-ai-agents](./skills/building-pydantic-ai-agents) | Building Pydantic AI agents with tools, capabilities, structured output, streaming, YAML-defined agents, testing, hooks, and multi-agent patterns |
 | [convex-design](./skills/convex-design) | Designing and building reactive, type-safe Convex backends with schemas, queries, mutations, actions, auth, storage, scheduling, real-time features, and agent workflows |
 | [cosmosdb-best-practices](./skills/cosmosdb-best-practices) | Designing, reviewing, and optimizing Azure Cosmos DB NoSQL data models, partition keys, queries, SDK usage, throughput, and vector search |
+| [dataproc-skills](./skills/dataproc-skills) | Managing Google Cloud Dataproc clusters and jobs through bundled Node scripts for listing, inspection, job submission, and cancellation |
 | [data-analyst](./skills/data-analyst) | Acting as an interactive data analyst over ClickHouse: clarify the actual question first, then connect (local or ClickHouse Cloud) and run safe, bounded SQL via the `clickhousectl` CLI. Includes a `clickhouse` sub-skill for CLI auth (browser OAuth) and querying |
 
 ## Repository Layout
