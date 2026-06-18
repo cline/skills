@@ -82,6 +82,7 @@ Skills are contextual and auto-loaded based on your conversation. When a request
 | [teamcity-cli](./skills/teamcity-cli) | Driving TeamCity CI/CD from the terminal with the `teamcity` CLI for builds, logs, jobs, queues, agents, pools, projects, pipelines, and REST API calls |
 | [ui5-typescript-conversion](./skills/ui5-typescript-conversion) | Converting SAPUI5/OpenUI5 JavaScript projects to TypeScript while preserving comments, types, XMLView assumptions, tests, and UI5 project conventions |
 | [use-railway](./skills/use-railway) | Operating Railway infrastructure, including signup/login, project and service creation, deployments, variables, domains, logs, metrics, docs, and agent tooling |
+| [vibe-prospecting](./skills/vibe-prospecting) | Finding company and contact data, building lead lists, enriching prospects, researching accounts, and chaining prospecting workflows through the Vibe Prospecting CLI |
 | [data-analyst](./skills/data-analyst) | Acting as an interactive data analyst over ClickHouse: clarify the actual question first, then connect (local or ClickHouse Cloud) and run safe, bounded SQL via the `clickhousectl` CLI. Includes a `clickhouse` sub-skill for CLI auth (browser OAuth) and querying |
 
 ## Repository Layout
