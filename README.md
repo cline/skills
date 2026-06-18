@@ -74,6 +74,7 @@ Skills are contextual and auto-loaded based on your conversation. When a request
 | [sap-fiori-add-visual-filter](./skills/sap-fiori-add-visual-filter) | Adding chart-based visual filters to SAP Fiori Elements filter bars and value help dialogs using CAP or ABAP RAP annotations |
 | [save-to-spotify](./skills/save-to-spotify) | Producing polished audio episodes with narration, cover art, timeline companions, show notes, and Save to Spotify CLI workflows |
 | [searching-sourcegraph](./skills/searching-sourcegraph) | Searching and navigating code with Sourcegraph MCP tools, including keyword search, semantic search, references, definitions, commits, diffs, and Deep Search |
+| [sentry-cli](./skills/sentry-cli) | Using the Sentry CLI for issues, events, traces, logs, releases, projects, organizations, API calls, authentication, and local Spotlight workflows |
 | [data-analyst](./skills/data-analyst) | Acting as an interactive data analyst over ClickHouse: clarify the actual question first, then connect (local or ClickHouse Cloud) and run safe, bounded SQL via the `clickhousectl` CLI. Includes a `clickhouse` sub-skill for CLI auth (browser OAuth) and querying |
 
 ## Repository Layout
