@@ -65,6 +65,7 @@ Skills are contextual and auto-loaded based on your conversation. When a request
 | [exa-search](./skills/exa-search) | Running Exa-powered research workflows for deep dives, lead generation, literature reviews, competitive analysis, and multi-step search synthesis |
 | [firestore-data](./skills/firestore-data) | Working with Firestore collections and documents through bundled Node scripts for CRUD, data retrieval, and collection hierarchy exploration |
 | [frontend-design](./skills/frontend-design) | Creating distinctive, production-grade frontend interfaces with strong visual direction, refined typography, cohesive color, motion, and polished implementation details |
+| [gcp-to-aws](./skills/gcp-to-aws) | Planning and implementing migrations from Google Cloud to AWS, including infrastructure, databases, AI workloads, agent stacks, Terraform, and cutover strategy |
 | [data-analyst](./skills/data-analyst) | Acting as an interactive data analyst over ClickHouse: clarify the actual question first, then connect (local or ClickHouse Cloud) and run safe, bounded SQL via the `clickhousectl` CLI. Includes a `clickhouse` sub-skill for CLI auth (browser OAuth) and querying |
 
 ## Repository Layout
