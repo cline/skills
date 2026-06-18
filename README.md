@@ -78,6 +78,7 @@ Skills are contextual and auto-loaded based on your conversation. When a request
 | [session-report](./skills/session-report) | Generating self-contained HTML usage reports from Claude Code session transcripts, including token usage, cache behavior, subagent activity, skill usage, and expensive prompts |
 | [site-specification](./skills/site-specification) | Extracting structured website specifications from theme or site descriptions, including site brief, audience, layout notes, brand tone, and typography guidance |
 | [skill-creator](./skills/skill-creator) | Creating, improving, evaluating, benchmarking, packaging, and optimizing Agent Skills with bundled schemas, graders, scripts, and review tooling |
+| [spanner-data](./skills/spanner-data) | Exploring Spanner database structure, discovering schema objects, and executing SQL through bundled Node scripts |
 | [data-analyst](./skills/data-analyst) | Acting as an interactive data analyst over ClickHouse: clarify the actual question first, then connect (local or ClickHouse Cloud) and run safe, bounded SQL via the `clickhousectl` CLI. Includes a `clickhouse` sub-skill for CLI auth (browser OAuth) and querying |
 
 ## Repository Layout
