@@ -22,13 +22,14 @@ Authored for this analyst workflow:
 - `skills/plotting/` — create chart or visual artifacts from query results.
 - `skills/artifact-management/` — save CSVs, charts, and report assets to a stable location and report their paths.
 
-Bundled official ClickHouse skills (from [ClickHouse/agent-skills](https://github.com/ClickHouse/agent-skills), Apache-2.0, vendored via a git submodule). Load these when the corresponding need arises:
+Bundled official ClickHouse skills (from [ClickHouse/agent-skills](https://github.com/ClickHouse/agent-skills), Apache-2.0, vendored as plain files; source commit and licence in `skills/VENDORED.md`). Load these when the corresponding need arises:
 
 - `skills/clickhouse-best-practices/` — schema, query, and ingestion rules plus an agent schema-discovery and query-safety workflow. Consult when writing or optimizing non-trivial SQL.
 - `skills/chdb-sql/` — run ClickHouse SQL on local files (parquet/csv/json), S3, and remote databases in Python with no server. Use for ad-hoc analysis over files or cross-source data.
 - `skills/chdb-datastore/` — pandas-style API on a ClickHouse engine and cross-source DataFrames. Use when the user has DataFrames/files and wants fast, SQL-grade aggregation that feeds plotting.
-- `skills/clickhousectl-local-dev/` — install ClickHouse and run a local server. Use when the user needs a local instance to load and analyze data.
-- `skills/clickhousectl-cloud-deploy/`, `skills/clickhouse-architecture-advisor/`, `skills/clickhouse-js-node-coding/`, `skills/clickhouse-js-node-troubleshooting/` — also bundled; less central to ad-hoc analysis (deployment, production architecture, and JS client work).
+- `skills/infra-clickhouse/` — install and run a local ClickHouse server (`skills/infra-clickhouse/ref/local.md`), or create and connect to a ClickHouse Cloud service (`skills/infra-clickhouse/ref/cloud.md`), via `clickhousectl`. Use when the user needs an instance to load and analyze data.
+
+Only the ClickHouse skills this workflow uses are bundled. ClickHouse publishes more (architecture advice, JS client, Postgres, observability); users who want them can install the full set with `npx skills add clickhouse/agent-skills`.
 
 See `examples.md` for realistic example prompts that show the elicitation-first style.
 

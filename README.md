@@ -101,24 +101,27 @@ skills/
     skills/analyzer/                Sub-skill: turn results into findings
     skills/plotting/                Sub-skill: charts and visual artifacts
     skills/artifact-management/     Sub-skill: save and describe outputs
-    skills/clickhouse-best-practices/  -> .vendor/clickhouse-agent-skills (official, see below)
-    skills/chdb-sql/                   -> .vendor/clickhouse-agent-skills
-    skills/chdb-datastore/             -> .vendor/clickhouse-agent-skills
-    skills/clickhousectl-local-dev/    -> .vendor/clickhouse-agent-skills
-    skills/clickhousectl-cloud-deploy/ -> .vendor/clickhouse-agent-skills
-    skills/clickhouse-architecture-advisor/      -> .vendor/clickhouse-agent-skills
-    skills/clickhouse-js-node-coding/            -> .vendor/clickhouse-agent-skills
-    skills/clickhouse-js-node-troubleshooting/   -> .vendor/clickhouse-agent-skills
+    skills/clickhouse-best-practices/  Official ClickHouse skills, vendored (see below)
+    skills/chdb-sql/
+    skills/chdb-datastore/
+    skills/infra-clickhouse/
+    skills/VENDORED.md              Upstream commit and licence of the vendored skills
 .vendor/
   sdk-skill/                 Submodule of https://github.com/cline/sdk-skill
-  clickhouse-agent-skills/   Submodule of https://github.com/ClickHouse/agent-skills (Apache-2.0)
+scripts/
+  sync-vendored-skills.sh    Re-copy the vendored ClickHouse skills from upstream
 ```
 
-`skills/cline-sdk` is a symlink into the [`cline/sdk-skill`](https://github.com/cline/sdk-skill) submodule, which is maintained in its own repo. The official ClickHouse skills under `skills/data-analyst/skills/` are symlinks into the [`ClickHouse/agent-skills`](https://github.com/ClickHouse/agent-skills) submodule (Apache-2.0). To pull the latest:
+`skills/cline-sdk` is a symlink into the [`cline/sdk-skill`](https://github.com/cline/sdk-skill) submodule, which is maintained in its own repo. To pull the latest:
 
 ```
 git submodule update --remote .vendor/sdk-skill
-git submodule update --remote .vendor/clickhouse-agent-skills
+```
+
+The official ClickHouse skills under `skills/data-analyst/skills/` are copied from [`ClickHouse/agent-skills`](https://github.com/ClickHouse/agent-skills) (Apache-2.0) and committed as plain files, so installers that don't follow submodules still ship them. Only the skills the data-analyst workflow uses are vendored (the list is in `scripts/sync-vendored-skills.sh`). `skills/data-analyst/skills/VENDORED.md` records the upstream commit. To update to the latest upstream:
+
+```
+scripts/sync-vendored-skills.sh main
 ```
 
 ## Contributing

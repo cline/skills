@@ -11,8 +11,8 @@ Connect to ClickHouse and run queries using `clickhousectl`, the official ClickH
 
 This skill is for connecting and querying. For these other flows, use the bundled official ClickHouse skills (siblings in this directory) instead of reinventing them:
 
-- Setting up a local dev environment from scratch (install ClickHouse, init a project, start a server, create schema): `../clickhousectl-local-dev/`.
-- Deploying to or migrating into ClickHouse Cloud (create a service, migrate schema, provision an app user): `../clickhousectl-cloud-deploy/`.
+- Setting up a local dev environment from scratch (install ClickHouse, init a project, start a server, create schema): `../infra-clickhouse/ref/local.md`.
+- Deploying to or migrating into ClickHouse Cloud (create a service, migrate schema, provision an app user): `../infra-clickhouse/ref/cloud.md`.
 - Writing or optimizing non-trivial SQL, or the agent schema-discovery and query-safety workflow: `../clickhouse-best-practices/`.
 - Running SQL on local files or remote sources without a server: `../chdb-sql/`.
 
